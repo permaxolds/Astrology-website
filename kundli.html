@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kundli Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>🧘 Kundli Generator</h2>
+        <form onsubmit="generateKundli(event)">
+            <input type="text" id="name" placeholder="Name" required><br>
+            <input type="date" id="dob" required><br>
+            <input type="time" id="tob" required><br>
+            <input type="text" id="place" placeholder="Place of Birth" required><br>
+            <button type="submit">Generate</button>
+        </form>
+        <p id="kundliResult"></p>
+    </div>
+    <script>
+        function generateKundli(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const dob = document.getElementById('dob').value;
+            const tob = document.getElementById('tob').value;
+            const place = document.getElementById('place').value;
+            document.getElementById('kundliResult').innerText =
+                `Kundli for ${name}\nRashi: Makar\nLagna: Kumbh\nJanam Sthan: ${place}\n(This is a static demo result.)`;
+        }
+    </script>
+</body>
+</html>

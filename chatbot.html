@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat with AstroBot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>💬 AstroBot</h2>
+        <div id="chatbox" style="height: 200px; overflow-y: auto; background: #222; padding: 10px; border-radius: 8px;"></div>
+        <input type="text" id="userInput" placeholder="Ask something..." onkeypress="if(event.key==='Enter') sendMessage()">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+    <script>
+        function sendMessage() {
+            const input = document.getElementById("userInput");
+            const msg = input.value;
+            if (!msg) return;
+            const chat = document.getElementById("chatbox");
+            chat.innerHTML += `<div><b>You:</b> ${msg}</div>`;
+
+            let reply = "Hmm... Interesting!";
+            if (msg.toLowerCase().includes("shaadi")) reply = "Aapki shaadi 2026 ke aaspas ho sakti hai.";
+            else if (msg.toLowerCase().includes("career")) reply = "Career mein agla saal aapke liye strong hoga.";
+            else if (msg.toLowerCase().includes("paisa")) reply = "Financial growth ke chances hain agle 3 mahine mein.";
+            else reply = "Mujhe is prashn ka exact uttar nahi mila, par aapka bhavishya roshan hai!";
+
+            chat.innerHTML += `<div><b>AstroBot:</b> ${reply}</div>`;
+            input.value = "";
+            chat.scrollTop = chat.scrollHeight;
+        }
+    </script>
+</body>
+</html>
